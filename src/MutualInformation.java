@@ -11,7 +11,7 @@ public class MutualInformation {
 
   private Unigram model;
 
-  private LinkedList<String> context;
+  private ArrayList<String> context;
 
   private ArrayList<Question> questions;
   
@@ -20,7 +20,7 @@ public class MutualInformation {
   public MutualInformation(Unigram model, List<Question> questions) {
     this.results = new ArrayList<Map.Entry<Question, Double>>();
     this.questions = new ArrayList<Question>(questions);
-    this.context = new LinkedList<String>();
+    this.context = new ArrayList<String>();
     this.model = model;
     ArrayList<String> corpus = new ArrayList<String>(model.getCorpus());
     for (String line : corpus) {
@@ -36,12 +36,10 @@ public class MutualInformation {
     int total = context.size();
     HashMap<Question, Double> res = new HashMap<Question, Double>();
     for(Question question : questions) {
-      System.out.println("Running question: " + question.getDescription());
       Double posCount = 0.0;
       Double negCount = 0.0;
       List<String> positive = new ArrayList<String>();
       List<String> negative = new ArrayList<String>();
-      System.out.println("This may take a while...");
       for(int i  = 0; i < context.size(); i++) {
         if(question.askQuestion(context, i)) {
           posCount++;

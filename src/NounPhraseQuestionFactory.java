@@ -56,13 +56,13 @@ public class NounPhraseQuestionFactory implements CategoryQuestionFactory {
       if (currentPOSIndex < n) {
         Set<String> set1 = new HashSet<String>(history.subList(0, currentPOSIndex));
         Set<String> set2 = new HashSet<String>(nounPhrasePOSTags);
-        System.out.println("Checking " + set1 + " and " + set2);
+        //System.out.println("Checking " + set1 + " and " + set2);
         return set2.containsAll(set1);
       } else {
-        Set<String> set1 = new HashSet<String>(history.subList(currentPOSIndex - 1 - n,
+        Set<String> set1 = new HashSet<String>(history.subList(currentPOSIndex - n,
                 currentPOSIndex));
         Set<String> set2 = new HashSet<String>(nounPhrasePOSTags);
-        System.out.println("Checking " + set1 + " and " + set2);
+        //System.out.println("Checking " + set1 + " and " + set2);
         return set2.containsAll(set1);
       }
     }
