@@ -59,7 +59,7 @@ public class MutualInformation {
       /* MI calculation */
       Double MI = H - w1 * H1 - w2 * H2;
       res.put(question, MI);
-      System.out.println("Asking question...\n\n" + question.getDescription() + "\n\nInformation gain: " + MI);
+      //System.out.println("Asking question...\n\nQUESTION: " + question.getDescription() + "\n\nInformation gain: " + MI);
     }
     results = new LinkedList<Map.Entry<Question, Double>>(res.entrySet());
     Collections.sort(results, new Comparator<Map.Entry<Question, Double>>() {
