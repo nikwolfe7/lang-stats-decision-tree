@@ -70,6 +70,9 @@ public class MutualInformation {
   }
 
   public List<Map.Entry<Question, Double>> getResults() {
+    for(Map.Entry<Question, Double> entry : results) {
+      System.out.println("Q: " + entry.getKey().getDescription() + "\tInformation Gain: " + entry.getValue());
+    }
     return results;
   }
   

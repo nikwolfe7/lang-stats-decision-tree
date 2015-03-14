@@ -19,9 +19,13 @@ public class Driver {
     CategoryQuestionFactory cat1Factory = new NounPhraseQuestionFactory();
     MutualInformation mutualInfoCalculator = new MutualInformation(train, cat1Factory.getQuestions());
     mutualInfoCalculator.doCalculateMI();
-    for(Map.Entry<Question, Double> entry : mutualInfoCalculator.getResults()) {
-      System.out.println("Q: " + entry.getKey().getDescription() + "\tInformation Gain: " + entry.getValue());
-    }
+    mutualInfoCalculator.getResults();
+    
+    CategoryQuestionFactory cat2Factory = new NgramQuestionFactory(train);
+    MutualInformation mutualInfoCalculator2 = new MutualInformation(train, cat2Factory.getQuestions());
+    mutualInfoCalculator2.doCalculateMI();
+    mutualInfoCalculator2.getResults();
+    
   }
 
 }
