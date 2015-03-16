@@ -4,6 +4,8 @@ public interface Question {
   
   public boolean askQuestion(List<String> history, Integer currentPOSIndex);
   
+  public void reset();
+  
   /**
    * Describe yourself so we can output stuff...
    * @return

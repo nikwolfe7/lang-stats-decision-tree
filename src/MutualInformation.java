@@ -36,6 +36,7 @@ public class MutualInformation {
     int total = context.size();
     HashMap<Question, Double> res = new HashMap<Question, Double>();
     for (Question question : questions) {
+      question.reset();
       Double posCount = 0.0;
       Double negCount = 0.0;
       List<String> positive = new ArrayList<String>();
@@ -58,10 +59,9 @@ public class MutualInformation {
       Double w2 = negCount / total;
       /* MI calculation */
       Double MI = H - w1 * H1 - w2 * H2;
-      if (MI > 0.0) {
-        res.put(question, MI);
-        //System.out.println("Asking question...\n\nQUESTION: " + question.getDescription() + "\n\nInformation gain: " + MI);
-      }
+      res.put(question, MI);
+      // System.out.println("Asking question...\n\nQUESTION: " + question.getDescription() +
+      // "\n\nInformation gain: " + MI);
     }
     results = new LinkedList<Map.Entry<Question, Double>>(res.entrySet());
     Collections.sort(results, new Comparator<Map.Entry<Question, Double>>() {
@@ -74,8 +74,7 @@ public class MutualInformation {
   public List<Map.Entry<Question, Double>> getResults() {
     Double avg = 0.0;
     for (Map.Entry<Question, Double> entry : results) {
-      System.out.println("Q: " + entry.getKey().getDescription() + "\tInformation Gain: "
-              + entry.getValue());
+      //System.out.println("Q: " + entry.getKey().getDescription() + "\tInformation Gain: " + entry.getValue());
       avg += entry.getValue();
     }
     avg = avg / results.size();

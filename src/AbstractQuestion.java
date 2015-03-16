@@ -22,6 +22,12 @@ public abstract class AbstractQuestion implements Question {
   protected abstract boolean doAskQuestion(List<String> history, Integer currentPOSIndex);
 
   public abstract String getDescription();
+  
+  @Override
+  public void reset() {
+    positives.clear();
+    negatives.clear();
+  }
 
   @Override
   public List<String> getPositives() {

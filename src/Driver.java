@@ -1,6 +1,3 @@
-import java.util.ArrayList;
-import java.util.List;
-
 public class Driver {
   
   private static String training = "hw6-WSJ-TRAIN.tags";
@@ -16,15 +13,15 @@ public class Driver {
     System.out.println("Perplexity of " + training + ": " + train.calcPerplexity(train.getModel()));
     System.out.println("Perplexity of " + testing + ": " + train.calcPerplexity(test.getModel()));
     
-    List<CategoryQuestionFactory> questionFactories = new ArrayList<CategoryQuestionFactory>();
-    questionFactories.add(new NounPhraseQuestionFactory());
-    questionFactories.add(new PrecedingElementQuestionFactory());
-    questionFactories.add(new NgramQuestionFactory(train));
-    questionFactories.add(new EndOfSentenceQuestionFactory());
-    questionFactories.add(new VerbPositionQuestionFactory());
+    TreeBuilder tree = new TreeBuilder(train, 
+            new NounPhraseQuestionFactory(), 
+            new PrecedingElementQuestionFactory(), 
+            new NgramQuestionFactory(train),
+            new EndOfSentenceQuestionFactory(),
+            new VerbPositionQuestionFactory());
     
-    TreeBuilder tree = new TreeBuilder(train, questionFactories);
-    tree.testUnigram(test);
+    LevelTreeBuilder builder = new LevelTreeBuilder(tree, test, 3);
+    builder.doBuildTree();
     
   }
 

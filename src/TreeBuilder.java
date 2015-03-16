@@ -5,18 +5,55 @@ import java.util.List;
 import java.util.Map;
 import java.util.Map.Entry;
 
-
 public class TreeBuilder {
   
   private Unigram parent;
   private Unigram leftChild;
   private Unigram rightChild;
   private Question mostInformativeQuestion;
+  private CategoryQuestionFactory remainingQuestions;
   
-  public TreeBuilder(Unigram model, List<CategoryQuestionFactory> questionFactories) {
+  public TreeBuilder(Unigram model, CategoryQuestionFactory... questionFactories) {
+    constructor(model, questionFactories);
+  }
+  
+  /**
+   * Assumes we've already trained the question hierarchy and want to
+   * ask the questions afresh. 
+   * 
+   * @param model
+   * @param levelQuestion
+   */
+  public TreeBuilder(Unigram model, Question levelQuestion) {
+     constructor(model, new CategoryQuestionFactory() {
+      @Override
+      public List<Question> getQuestions() {
+        List<Question> questions = new ArrayList<Question>();
+        questions.add(levelQuestion);
+        return questions;
+      }
+    });
+  }
+  
+  private void constructor(Unigram model, CategoryQuestionFactory... questionFactories) {
     this.parent = model;
     List<Map.Entry<Question, Double>> results = runMutualInformationQuestions(parent, questionFactories);
     this.mostInformativeQuestion = results.get(0).getKey();
+    this.remainingQuestions = new CategoryQuestionFactory() {
+      @Override
+      public List<Question> getQuestions() {
+        List<Question> questions = new ArrayList<Question>();
+        for (Map.Entry<Question, Double> entry : results) {
+          questions.add(entry.getKey());
+        }
+        if(questions.size() > 1) {
+          questions = questions.subList(1, questions.size());
+          return questions;
+        } else {
+          return null;
+        }
+      }
+    };
     doBuildTree();
   }
   
@@ -28,16 +65,17 @@ public class TreeBuilder {
     printUnigramStats(getLeftChild());
     rightChild = new Unigram(mostInformativeQuestion.getPositives());
     System.out.println("\nRight Child (Positives):\n");
-    printUnigramStats(getLeftChild());
+    printUnigramStats(getRightChild());
   }
   
   private void printUnigramStats(Unigram unigram) {
+    System.out.println("Size of branch: " + unigram.getCorpus().size());
     System.out.println("Average Log-Likelihood: " + unigram.getAvgLogLikelihood());
     System.out.println("Entropy: " + unigram.calcCrossEntropy(unigram.getModel()));
     System.out.println("Perplexity: " + unigram.calcPerplexity(unigram.getModel()));
   }
   
-  private List<Map.Entry<Question, Double>> runMutualInformationQuestions(Unigram unigram, List<CategoryQuestionFactory> questionFactories) {
+  private List<Map.Entry<Question, Double>> runMutualInformationQuestions(Unigram unigram, CategoryQuestionFactory... questionFactories) {
     List<Map.Entry<Question, Double>> results = new ArrayList<Map.Entry<Question,Double>>();
     List<MutualInformation> mutualInfoQuestions = new ArrayList<MutualInformation>();
     for(CategoryQuestionFactory categoryQuestionFactory : questionFactories) {
@@ -59,15 +97,13 @@ public class TreeBuilder {
   
   public void testUnigram(Unigram test) {
     System.out.println("\n==================== TEST RESULTS ====================\n");
-    List<CategoryQuestionFactory> qFact = new ArrayList<CategoryQuestionFactory>();
-    qFact.add(new CategoryQuestionFactory() {
+    List<Map.Entry<Question, Double>> results = runMutualInformationQuestions(test, new CategoryQuestionFactory() {
       public List<Question> getQuestions() {
         List<Question> questions = new ArrayList<Question>();
         questions.add(mostInformativeQuestion);
         return questions;
       }
     });
-    List<Map.Entry<Question, Double>> results = runMutualInformationQuestions(test, qFact);
     /* Test stats */
     Question best = results.get(0).getKey();
     System.out.println("\nTest Parent (Original Model):\n");
@@ -88,6 +124,10 @@ public class TreeBuilder {
 
   public Unigram getRightChild() {
     return rightChild;
+  }
+
+  public CategoryQuestionFactory getRemainingQuestions() {
+    return remainingQuestions;
   }
 
 }

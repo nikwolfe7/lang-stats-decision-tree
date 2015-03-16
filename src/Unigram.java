@@ -86,10 +86,12 @@ public class Unigram {
   
   private List<Entry<String, Double>> buildUnigram(List<String> data) {
     HashMap<String, Double> model = new HashMap<String, Double>();
+    ArrayList<String> replaceCorpus = new ArrayList<String>();
     int sum = 0;
     for (String line : data) {
       line += " ";
       for (String word : line.split(" ")) {
+        replaceCorpus.add(word);
         if (model.containsKey(word)) {
           model.put(word, model.get(word) + 1);
           sum += 1;
@@ -108,6 +110,7 @@ public class Unigram {
         return o2.getValue().compareTo(o1.getValue());
       }
     });
+    this.corpus = replaceCorpus;
     return sortedMap;
   }
   
