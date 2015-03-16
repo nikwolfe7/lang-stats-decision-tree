@@ -1,0 +1,121 @@
+Average Log Likelihood of hw6-WSJ-TRAIN.tags: -6.296249489437317
+Average Log Likelihood of hw6-WSJ-TEST.tags: -6.302454539116294
+Perplexity of hw6-WSJ-TRAIN.tags: 18.658953661931378
+Perplexity of hw6-WSJ-TEST.tags: 18.669374714426148
+Q: Is the previous element part of a noun phrase?	Information Gain: 0.11158743409446381
+Q: Are the previous 2 elements part of a noun phrase?	Information Gain: 0.06308354233549629
+Q: Are the previous 3 elements part of a noun phrase?	Information Gain: 0.03391797565102328
+Q: Are the previous 4 elements part of a noun phrase?	Information Gain: 0.022606193078598125
+Q: Are the previous 5 elements part of a noun phrase?	Information Gain: 0.015386088580200408
+Number of questions in this category: 5
+Average MI in this category: 0.049316246747956385
+
+Q: Is the previous element NNP?	Information Gain: 0.11427143837780163
+Q: Is the previous element DT?	Information Gain: 0.11126088630179432
+Q: Is the previous element NN?	Information Gain: 0.09969811216854785
+Q: Is the previous element IN?	Information Gain: 0.0990950703879312
+Q: Is the previous element JJ?	Information Gain: 0.06894833075908613
+Q: Is the previous element NNS?	Information Gain: 0.06650003471687604
+Q: Is the previous element TO?	Information Gain: 0.06599336409447343
+Q: Is the previous element MD?	Information Gain: 0.04755769226965789
+Q: Is the previous element PRP?	Information Gain: 0.04584995950657511
+Q: Is the previous element .?	Information Gain: 0.03333052553189653
+Q: Is the previous element ,?	Information Gain: 0.032248958043966436
+Q: Is the previous element CD?	Information Gain: 0.029578250824215502
+Q: Is the previous element RB?	Information Gain: 0.02266374725210607
+Q: Is the previous element VBD?	Information Gain: 0.02108907630170176
+Q: Is the previous element VBZ?	Information Gain: 0.019543127805563998
+Q: Is the previous element VB?	Information Gain: 0.017610099264137702
+Q: Is the previous element VBN?	Information Gain: 0.016088258363451402
+Q: Is the previous element VBP?	Information Gain: 0.013611309568597463
+Q: Is the previous element PRP$?	Information Gain: 0.012747349455944246
+Q: Is the previous element WDT?	Information Gain: 0.011932028203214706
+Q: Is the previous element POS?	Information Gain: 0.010577791332631037
+Q: Is the previous element VBG?	Information Gain: 0.00807452377020823
+Q: Is the previous element CC?	Information Gain: 0.0074720787407747125
+Q: Is the previous element WP?	Information Gain: 0.0059247852618593555
+Q: Is the previous element EX?	Information Gain: 0.003251252781888425
+Q: Is the previous element JJR?	Information Gain: 0.002843244518492938
+Q: Is the previous element :?	Information Gain: 0.0025394657726112158
+Q: Is the previous element NNPS?	Information Gain: 0.0024552465626577202
+Q: Is the previous element WRB?	Information Gain: 0.0023171266220991527
+Q: Is the previous element RBR?	Information Gain: 0.0021551944400979295
+Q: Is the previous element (?	Information Gain: 0.0015301509394998192
+Q: Is the previous element JJS?	Information Gain: 0.0012557939437165544
+Q: Is the previous element )?	Information Gain: 0.0012197963777049736
+Q: Is the previous element RP?	Information Gain: 0.0011987778601021404
+Number of questions in this category: 34
+Average MI in this category: 0.02948331906240834
+
+Q: Are the previous 2 elements IN_DT?	Information Gain: 0.04207772435421919
+Q: Are the previous 2 elements NNP_NNP?	Information Gain: 0.0410884066090027
+Q: Are the previous 2 elements DT_NN?	Information Gain: 0.03309481019432425
+Q: Are the previous 2 elements NN_IN?	Information Gain: 0.03283594987033389
+Q: Are the previous 2 elements DT_JJ?	Information Gain: 0.030097226098456886
+Q: Are the previous 2 elements JJ_NN?	Information Gain: 0.02134340178068861
+Q: Are the previous 2 elements IN_NNP?	Information Gain: 0.01864597690057579
+Q: Are the previous 2 elements JJ_NNS?	Information Gain: 0.017243209793873504
+Q: Are the previous 2 elements NN_NN?	Information Gain: 0.014179638641435233
+Q: Are the previous 3 elements NN_IN_DT?	Information Gain: 0.014168383489780112
+Q: Are the previous 2 elements IN_JJ?	Information Gain: 0.01373205702120206
+Q: Are the previous 2 elements NNS_IN?	Information Gain: 0.01305876097874581
+Q: Are the previous 3 elements IN_DT_JJ?	Information Gain: 0.012909338379644808
+Q: Are the previous 2 elements NN_.?	Information Gain: 0.012530075542803942
+Q: Are the previous 3 elements IN_DT_NN?	Information Gain: 0.012465163587144446
+Q: Are the previous 2 elements NN_NNS?	Information Gain: 0.012209602832196076
+Q: Are the previous 3 elements NNP_NNP_NNP?	Information Gain: 0.011723861075531694
+Q: Are the previous 2 elements NN_,?	Information Gain: 0.011507970869808481
+Q: Are the previous 3 elements DT_JJ_NN?	Information Gain: 0.011088966621854546
+Q: Are the previous 2 elements ._DT?	Information Gain: 0.010384191273155707
+Q: Are the previous 2 elements NNP_,?	Information Gain: 0.010309548254055834
+Q: Are the previous 3 elements DT_NN_IN?	Information Gain: 0.01017709228382735
+Q: Are the previous 2 elements IN_CD?	Information Gain: 0.008837271027328342
+Q: Are the previous 3 elements ._NNP_NNP?	Information Gain: 0.008342110042685924
+Q: Are the previous 2 elements DT_NNP?	Information Gain: 0.00830644051502194
+Q: Are the previous 2 elements TO_VB?	Information Gain: 0.008169757773167419
+Q: Are the previous 3 elements NN_IN_NNP?	Information Gain: 0.007784071587846775
+Q: Are the previous 2 elements IN_NN?	Information Gain: 0.0077571822773352395
+Q: Are the previous 3 elements IN_NNP_NNP?	Information Gain: 0.0076973339411390285
+Q: Are the previous 3 elements JJ_NN_IN?	Information Gain: 0.006973759064808682
+Q: Are the previous 3 elements ._DT_NN?	Information Gain: 0.006151394028937496
+Q: Are the previous 3 elements NNS_IN_DT?	Information Gain: 0.006065018234655106
+Q: Are the previous 3 elements NNP_NNP_,?	Information Gain: 0.006025979513514912
+Q: Are the previous 3 elements IN_JJ_NNS?	Information Gain: 0.005285138243030119
+Q: Are the previous 4 elements IN_DT_JJ_NN?	Information Gain: 0.005033183955466924
+Q: Are the previous 4 elements DT_NN_IN_DT?	Information Gain: 0.004620665899296661
+Q: Are the previous 4 elements NN_IN_DT_NN?	Information Gain: 0.004535665486328888
+Q: Are the previous 4 elements NN_IN_DT_JJ?	Information Gain: 0.004335027701643845
+Q: Are the previous 3 elements DT_NN_NN?	Information Gain: 0.004303672462553365
+Q: Are the previous 3 elements IN_DT_NNP?	Information Gain: 0.004202844863255173
+Q: Are the previous 3 elements NN_NN_IN?	Information Gain: 0.003796276293718037
+Q: Are the previous 4 elements DT_JJ_NN_IN?	Information Gain: 0.0037819649818429113
+Q: Are the previous 4 elements IN_DT_NN_IN?	Information Gain: 0.003693715672557829
+Q: Are the previous 4 elements NN_IN_NNP_NNP?	Information Gain: 0.003400902913933024
+Q: Are the previous 4 elements NNP_NNP_NNP_NNP?	Information Gain: 0.003259295272967755
+Q: Are the previous 4 elements NN_._NNP_NNP?	Information Gain: 0.0032143612921160525
+Q: Are the previous 4 elements JJ_NN_IN_DT?	Information Gain: 0.003198035234631469
+Q: Are the previous 3 elements DT_NNP_NNP?	Information Gain: 0.003068255755224847
+Q: Are the previous 3 elements NNP_NNP_VBD?	Information Gain: 0.0029830461055153634
+Q: Are the previous 3 elements NN_IN_NN?	Information Gain: 0.0026818610258567688
+Q: Are the previous 4 elements NNP_NNP_,_DT?	Information Gain: 0.002600225239703491
+Q: Are the previous 4 elements DT_NN_IN_NNP?	Information Gain: 0.002384675703568817
+Q: Are the previous 4 elements IN_DT_NN_NN?	Information Gain: 0.002026052622070118
+Q: Are the previous 4 elements NNP_NNP_NNP_,?	Information Gain: 0.0019991258580338567
+Q: Are the previous 4 elements NNS_IN_DT_NN?	Information Gain: 0.0019406418875185238
+Q: Are the previous 4 elements NN_IN_DT_NNP?	Information Gain: 0.0018442902312916232
+Q: Are the previous 4 elements IN_DT_NNP_NNP?	Information Gain: 0.0016890686904078578
+Q: Are the previous 4 elements DT_JJ_NN_NN?	Information Gain: 0.0016765457025513797
+Q: Are the previous 4 elements TO_VB_DT_NN?	Information Gain: 0.0015889847258723222
+Q: Are the previous 4 elements IN_DT_NN_.?	Information Gain: 0.00152066824510122
+Number of questions in this category: 60
+Average MI in this category: 0.009560764442086
+
+Q: Is this the beginning of a sentence?	Information Gain: 0.033332616134194026
+Number of questions in this category: 1
+Average MI in this category: 0.033332616134194026
+
+Q: Are we after a verb?	Information Gain: 0.05354151185958511
+Q: Are we before a verb?	Information Gain: 0.053541511859585
+Number of questions in this category: 2
+Average MI in this category: 0.053541511859585056
+

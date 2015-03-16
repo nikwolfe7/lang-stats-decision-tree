@@ -14,7 +14,7 @@ public class MutualInformation {
   private ArrayList<String> context;
 
   private ArrayList<Question> questions;
-  
+
   private List<Map.Entry<Question, Double>> results;
 
   public MutualInformation(Unigram model, List<Question> questions) {
@@ -31,17 +31,17 @@ public class MutualInformation {
       }
     }
   }
-  
+
   public void doCalculateMI() {
     int total = context.size();
     HashMap<Question, Double> res = new HashMap<Question, Double>();
-    for(Question question : questions) {
+    for (Question question : questions) {
       Double posCount = 0.0;
       Double negCount = 0.0;
       List<String> positive = new ArrayList<String>();
       List<String> negative = new ArrayList<String>();
-      for(int i  = 0; i < context.size(); i++) {
-        if(question.askQuestion(context, i)) {
+      for (int i = 0; i < context.size(); ++i) {
+        if (question.askQuestion(context, i)) {
           posCount++;
           positive.add(context.get(i));
         } else {
@@ -53,13 +53,15 @@ public class MutualInformation {
       Unigram neg = new Unigram(negative);
       Double H = model.calcCrossEntropy(model.getModel());
       Double H1 = pos.calcCrossEntropy(pos.getModel());
-      Double w1 = posCount/total;
+      Double w1 = posCount / total;
       Double H2 = neg.calcCrossEntropy(neg.getModel());
-      Double w2 = negCount/total;
+      Double w2 = negCount / total;
       /* MI calculation */
       Double MI = H - w1 * H1 - w2 * H2;
-      res.put(question, MI);
-      //System.out.println("Asking question...\n\nQUESTION: " + question.getDescription() + "\n\nInformation gain: " + MI);
+      if (MI > 0.0) {
+        res.put(question, MI);
+        //System.out.println("Asking question...\n\nQUESTION: " + question.getDescription() + "\n\nInformation gain: " + MI);
+      }
     }
     results = new LinkedList<Map.Entry<Question, Double>>(res.entrySet());
     Collections.sort(results, new Comparator<Map.Entry<Question, Double>>() {
@@ -70,10 +72,16 @@ public class MutualInformation {
   }
 
   public List<Map.Entry<Question, Double>> getResults() {
-    for(Map.Entry<Question, Double> entry : results) {
-      System.out.println("Q: " + entry.getKey().getDescription() + "\tInformation Gain: " + entry.getValue());
+    Double avg = 0.0;
+    for (Map.Entry<Question, Double> entry : results) {
+      System.out.println("Q: " + entry.getKey().getDescription() + "\tInformation Gain: "
+              + entry.getValue());
+      avg += entry.getValue();
     }
+    avg = avg / results.size();
+    System.out.println("Number of questions in this category: " + results.size());
+    System.out.println("Average MI in this category: " + avg + "\n");
     return results;
   }
-  
+
 }

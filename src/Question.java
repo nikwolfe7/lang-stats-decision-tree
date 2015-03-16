@@ -10,4 +10,8 @@ public interface Question {
    */
   public String getDescription();
   
+  public List<String> getPositives();
+  
+  public List<String> getNegatives();
+  
 }
